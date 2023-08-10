@@ -1,0 +1,27 @@
+<div class="login-form">
+    <div class="card">
+      <h2 class="head py-2">Login</h2>
+      <form class="user-login" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="row">
+          <div class="col-md-12 roundedTextBox mb-3">
+            <label>Username</label>
+            <input type="text" class="form-control mb-2" id="userName" formControlName="userName" placeholder="Enter userName">
+            <div *ngIf="submitted && loginControls.userName.errors" class="text-danger">
+              <div *ngIf="loginControls.userName.errors.required">User Name is required.</div>
+            </div>
+          </div>
+          <div class="col-md-12 roundedTextBox mb-3">
+            <label>Password</label>
+            <input type="password" class="form-control mb-2" id="password" formControlName="password" placeholder="Enter Password">
+            <div *ngIf="submitted && loginControls.password.errors" class="text-danger">
+              <div *ngIf="loginControls.password.errors.required">Password is required.</div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="buttons text-center">
+          <button class="btn btn-primary mr-2" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>

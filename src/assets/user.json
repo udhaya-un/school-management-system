@@ -1,0 +1,51 @@
+[
+    {
+        "userName": "udhaya10",
+        "password": "udhaya10@123",
+        "role": "Admin",
+        "isAdmin": true,
+        "hasAccess": "All"
+    },
+    {
+        "userName": "siva10",
+        "password": "siva10@123",
+        "role": "Teacher",
+        "isAdmin": false,
+        "hasAccess": "Secondary"
+    },
+    {
+        "userName": "vinoth10",
+        "password": "vinoth10@123",
+        "role": "Teacher",
+        "isAdmin": false,
+        "hasAccess": "Primary"
+    },
+    {
+        "userName": "raja10",
+        "password": "raja10@123",
+        "role": "Teacher",
+        "isAdmin": false,
+        "hasAccess": "Secondary"
+    },
+    {
+        "userName": "prakash10",
+        "password": "prakash10@123",
+        "role": "Teacher",
+        "isAdmin": false,
+        "hasAccess": "Primary"
+    },
+    {
+        "userName": "jaanu10",
+        "password": "jaanu10@123",
+        "role": "Teacher",
+        "isAdmin": false,
+        "hasAccess": "Primary"
+    },
+    {
+        "userName": "nalan10",
+        "password": "nalan10@123",
+        "role": "Teacher",
+        "isAdmin": false,
+        "hasAccess": "Secondary"
+    } 
+]

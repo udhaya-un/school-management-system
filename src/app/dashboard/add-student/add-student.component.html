@@ -1,0 +1,104 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left"> {{ title }} </h4>
+	<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<div class="modal-body">
+	<form class="user-login" [formGroup]="addStudentForm" (ngSubmit)="addStudent()">
+		<div class="row">
+			<div class="col-6">
+				<div class="mb-3">
+					<label>Name</label>
+					<input type="text" class="form-control mb-2" id="name" formControlName="name"
+						placeholder="Enter student name">
+					<div *ngIf="submitted && addStudentControls.name.errors" class="text-danger">
+						<div *ngIf="addStudentControls.name.errors.required">Name is required.</div>
+					</div>
+				</div>
+				<div class="mb-3">
+					<label>Type</label>
+					<select class="form-control mb-2" id='type' name='type' formControlName="type">
+						<option *ngFor="let val of typeFiltersVal" [value]="val">
+							{{val}}
+						</option>
+					</select>
+					<div *ngIf="submitted && addStudentControls.type.errors" class="text-danger">
+						<div *ngIf="addStudentControls.type.errors.required">Type is required.</div>
+					</div>
+				</div>
+				<div class="mb-3">
+					<label>Primary Contact</label>
+					<input type="number" class="form-control mb-2" id="primaryContact" formControlName="primaryContact"
+						placeholder="Enter primary contact">
+					<div *ngIf="submitted && addStudentControls.primaryContact.errors" class="text-danger">
+						<div *ngIf="addStudentControls.primaryContact.errors.required">Primary contact is required.
+						</div>
+					</div>
+				</div>
+				<div class="mb-3">
+					<label>English Mark</label>
+					<input type="number" class="form-control mb-2" id="english" formControlName="english"
+						placeholder="Enter english mark">
+				</div>
+				<div class="mb-3">
+					<label>Maths Mark</label>
+					<input type="number" class="form-control mb-2" id="maths" formControlName="maths"
+						placeholder="Enter maths mark">
+				</div>
+				<div class="mb-3">
+					<label>Social Mark</label>
+					<input type="number" class="form-control mb-2" id="social" formControlName="social"
+						placeholder="Enter social mark">
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="mb-3">
+					<label>Class</label>
+					<select class="form-control mb-2" id='class' name='class' formControlName="class">
+						<option *ngFor="let val of classFiltersVal" [value]="val">
+							{{val}}
+						</option>
+					</select>
+					<div *ngIf="submitted && addStudentControls.class.errors" class="text-danger">
+						<div *ngIf="addStudentControls.class.errors.required">Class is required.</div>
+					</div>
+				</div>
+				<div class="mb-3">
+					<label>Age</label>
+					<input type="number" class="form-control mb-2" id="age" formControlName="age"
+						placeholder="Enter student age">
+					<div *ngIf="submitted && addStudentControls.age.errors" class="text-danger">
+						<div *ngIf="addStudentControls.age.errors.required">Age is required.</div>
+					</div>
+				</div>
+				<div class="mb-3">
+					<label>Secondary Contact</label>
+					<input type="number" class="form-control mb-2" id="secondaryContact"
+						formControlName="secondaryContact" placeholder="Enter Secondary contact">
+				</div>
+				<div class="mb-3">
+					<label>French Mark</label>
+					<input type="number" class="form-control mb-2" id="french" formControlName="french"
+						placeholder="Enter french mark">
+				</div>
+				<div class="mb-3">
+					<label>Science Mark</label>
+					<input type="number" class="form-control mb-2" id="science" formControlName="science"
+						placeholder="Enter science mark">
+				</div>
+				<div class="mb-3">
+					<label>Student ID</label>
+					<input type="text" class="form-control mb-2" id="studentId" formControlName="studentId"
+						placeholder="Enter student ID">
+					<div *ngIf="submitted && addStudentControls.studentId.errors" class="text-danger">
+						<div *ngIf="addStudentControls.studentId.errors.required">Student ID is required.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="buttons text-center">
+			<button class="btn btn-primary mr-2" type="submit">Add Student</button>
+		</div>
+	</form>
+</div>
