@@ -7,16 +7,16 @@ import { LoginGuard } from './login.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { 
-    path: 'login', 
-    component: LoginComponent, 
-  // canActivate:[LoginGuard]
-},
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [LoginGuard]
+  },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'dashboard',
-    component: DashboardComponent
-    // canLoad: [AuthGuard],
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
   { path: '**', component: PageNotFoundComponent }
 ];

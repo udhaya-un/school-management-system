@@ -1,7 +1,13 @@
 <div class="p-5">
-  <div class="text-center float-end p-3">
-    <button class="btn btn-primary mr-2" type="button" (click)="openModal({},false)">Add Student</button>
+  <div class="text-center float-start">
+    <button class="btn btn-primary" type="button" (click)="logout()">Logout</button>
   </div>
+  <div class="text-center float-end">
+    <button class="btn btn-primary" type="button" (click)="openModal({},false)">Add Student</button>
+  </div>
+  <!-- <div class="text-center float-end">
+    <button class="btn btn-primary" type="button" (click)="resetFilter()">Reset</button>
+  </div> -->
   <form [formGroup]="filterForm" (ngSubmit)="addFilter()">
     <div class="row">
       <div class="col-3">

@@ -7,6 +7,8 @@ import { group } from '@angular/animations';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { AddStudentComponent } from './add-student/add-student.component';
+import { LoginService } from '../login/login.service';
+import { Router } from '@angular/router';
 
 export interface StudentsElement {
   name: string,
@@ -152,7 +154,9 @@ export class DashboardComponent implements OnInit {
   constructor(
     private dashboardService: DashboardService,
     private formBuilder: FormBuilder,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private loginService: LoginService,
+    private router: Router,
   ) {
     this.filterForm = this.formBuilder.group({
       typeFilter: [null],
@@ -245,5 +249,18 @@ export class DashboardComponent implements OnInit {
         this.dataSource.paginator = this.paginator
       }
     });
+  }
+
+  // resetFilter() { 
+  //   this.columnsToDisplay = this.displayedColumns.slice();
+  //   this.filterForm.reset();
+  //   this.filterValues.type = this.filterForm.value.typeFilter;
+  //   this.filterValues.class = this.filterForm.value.classFilter;
+  //   this.dataSource.filter = JSON.stringify(this.filterValues);
+  // }
+
+  logout() {
+    this.loginService.setLoggedIn(false)
+    this.router.navigate(["/login"]);
   }
 }
