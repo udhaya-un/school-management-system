@@ -16,9 +16,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AddStudentComponent } from './dashboard/add-student/add-student.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,13 @@ import { AddStudentComponent } from './dashboard/add-student/add-student.compone
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-center',
+      preventDuplicates: true,
+      // closeButton: true
+    })
   ],
   providers: [AuthGuard, LoginGuard],
   bootstrap: [AppComponent],

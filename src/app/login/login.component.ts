@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit{
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private toastrService: ToastrService) {
     this.loginForm = this.formBuilder.group({
       userName: [null, Validators.required],
       password: [null, Validators.required]
@@ -41,10 +43,12 @@ export class LoginComponent implements OnInit{
         this.loginStatus = uData.some(user => user.userName === this.loginForm.value.userName && user.password === this.loginForm.value.password)
         if (this.loginStatus) {
           this.loginText = 'You are successfully logged in'
+          this.toastrService.success(this.loginText);
           this.loginService.setLoggedIn(this.loginStatus);
           this.router.navigate(["/dashboard"]);
         } else {
           this.loginText = 'The user name or password are incorrect'
+          this.toastrService.warning(this.loginText);
           this.loginService.setLoggedIn(this.loginStatus);
         }
       });
